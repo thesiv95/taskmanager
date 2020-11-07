@@ -1,8 +1,0 @@
-{
-    "name": "mark/test-router",
-    "type": "project",
-    "require": {
-        "phroute/phroute": "^2.1"
-    },
-    "license": "mit"
-}

@@ -17,9 +17,6 @@
                 <td>Otto</td>
                 <td>@twitter</td>
                 <td>
-                    <input type="checkbox" data-id="1">
-                </td>
-                <td>
                     <a href="/edit.php?id=1" class="btn btn-primary mb-2">Edit</a>
                     <a href="/change_status.php?to=0&id=1" class="btn btn-warning mb-2">Change status</a>
                     <a href="/delete.php?id=1" class="btn btn-danger mb-2">Delete</a>

@@ -23,14 +23,13 @@
 <body>
     <?php
         // TODO: api
-        // view, create, login, logout, change_status, edit
-        // TODO: index page + autoloads
+        // create, login, logout, change_status, edit
         
-        require_once 'config.php';
+        // TODO: finish pagination
 
-        $request_uri = $_SERVER['REQUEST_URI'];
-        $path_to_views = __DIR__ . '/views/';
-
+        $view = new View(0);
+        $data = $view->view(0); // offset is 0 by default
+        
     ?>
     
     <div class="container">
@@ -58,11 +57,65 @@
         </div>
         <!-- /navbar -->
 
-        <?php
-            // Router
-            
-           
-        ?>
+        <!-- add form -->
+<div class="row">
+    <div class="col-md-12 col-sm-12">
+        <form action="/create.php">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" name="name">
+            </div>
+            <div class="form-group">
+                <label for="email">Email address</label>
+                <input type="email" class="form-control" id="email" name="email">
+            </div>
+            <div class="form-group">
+                <label for="text">Task text</label>
+                <textarea class="form-control" id="text" name="text" rows="3"></textarea>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-success mb-2">Add new task</button>
+                <button type="reset" class="btn btn-danger mb-2">Clear all</button>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- /add form -->
+<!-- table -->
+<div class="row">
+    <div class="col-md-12 col-sm-12">
+    <table class="table table-hover">
+
+       
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Task text</th>
+                <th scope="col">Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php while ($row = mysqli_fetch_array($data, MYSQLI_ASSOC)): ?>
+            <input type="hidden" name="task_id" value=<?php echo $row['id']; ?>>
+            <tr <?php if ($row['completed'] === '1') : ?>class="table-success"<?php endif; ?>>
+                <td><?php echo $row['name']; ?></td>
+                <td><?php echo $row['email']; ?></td>
+                <td><?php echo $row['text']; ?></td>
+                <td>
+                    <?php if ($row['completed'] === '1') : ?>
+                    Completed
+                    <?php else: ?>
+                    Not completed
+                    <?php endif; ?>
+                </td>
+            </tr>
+            <?php endwhile; ?>
+        </tbody>
+        </table>
+    </div>
+</div>
+<!-- /table -->
 
 
         <!-- pagination -->
@@ -73,9 +126,24 @@
                     <span aria-hidden="true">&laquo;</span>
                 </a>
                 </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                
+                <?php
+                    $data_length = $view->all_rows_length();
+                    $pagination_counter = 1;
+                ?>
+                <li class="page-item">
+                    <a class="page-link" href="/view.php?offset=<?php echo $pagination_counter - 1 ?>"><?php echo $pagination_counter; ?></a>
+                </li>
+                
+                <?php while ($data_length >= 3): ?>
+                <?php $pagination_counter = $pagination_counter + 1; ?>
+                <li class="page-item">
+                    <a class="page-link" href="/view.php?offset=<?php echo $pagination_counter * 2 ?>">
+                    <?php echo $pagination_counter; ?>
+                    </a>
+                </li>
+                <?php $data_length = round($data_length / 3); ?>
+                <?php endwhile; ?>
                 <li class="page-item">
                 <a class="page-link" href="#" aria-label="Next">
                     <span aria-hidden="true">&raquo;</span>
