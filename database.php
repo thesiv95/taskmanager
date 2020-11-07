@@ -7,7 +7,7 @@
             $dbname = 'beejee';
             $username = 'root';
             $password = '';
-            $mysqli = new mysqli($host, $username, $password, $dbname, $port) or die('Error');
+            $mysqli = new mysqli($host, $username, $password, $dbname, $port) or die('DB connection error');
             return $mysqli;
         }
     }
