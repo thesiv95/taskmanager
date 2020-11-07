@@ -1,4 +1,3 @@
-<?php include 'autoload.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +11,6 @@
         // TODO: api
         // create, login, logout, change_status, edit
         
-        // TODO: finish pagination
 
         $fetch = new Fetch(0);
         $data = $fetch->view(0); // offset is 0 by default
@@ -35,7 +33,7 @@
                                 <a class="nav-link" href="/">Home</a>
                             </li>
                             <li class="nav-item active">
-                                <a class="nav-link" href="/admin.php">Admin (not logged)</a>
+                                <a class="nav-link" href="/admin">Admin (not logged)</a>
                             </li>
                         </ul>
                     </div>

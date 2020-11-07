@@ -3,6 +3,10 @@ textarea.form-control {
   resize: none;
 }
 
+.pagination {
+  margin-left: 40%;
+}
+
 table {
   overflow-x: scroll;
 }
