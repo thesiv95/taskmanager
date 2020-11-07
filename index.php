@@ -1,3 +1,17 @@
+<?php
+
+    spl_autoload_register('loadController');
+
+    function loadController($name){
+        $path_to_file = 'controllers/' . $name . '.php';
+        if (!file_exists($path_to_file)){
+            return false;
+        }
+
+        require_once $path_to_file;
+    }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,11 +24,12 @@
     <?php
         // TODO: api
         // view, create, login, logout, change_status, edit
-        // TODO: index page
-        // show buttons delete & update if authorized
+        // TODO: index page + autoloads
+        
         require_once 'config.php';
 
-        
+        $request_uri = $_SERVER['REQUEST_URI'];
+        $path_to_views = __DIR__ . '/views/';
 
     ?>
     
@@ -23,7 +38,7 @@
         <div class="row">
             <div class="col-md-12 col-sm-12">
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                    <a class="navbar-brand" href="#">Task Manager</a>
+                    <a class="navbar-brand" href="/taskmanager/">Task Manager</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -31,10 +46,10 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item active">
-                                <a class="nav-link" href="/">Home</a>
+                                <a class="nav-link" href="/taskmanager/">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/admin">Admin (not logged)</a>
+                                <a class="nav-link" href="/taskmanager/admin/">Admin (not logged)</a>
                             </li>
                         </ul>
                     </div>
@@ -42,66 +57,14 @@
             </div>
         </div>
         <!-- /navbar -->
-        <!-- add form -->
-        <div class="row">
-            <div class="col-md-12 col-sm-12">
-                <form action="/create.php">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" class="form-control" id="name" name="name">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email address</label>
-                        <input type="email" class="form-control" id="email" name="email">
-                    </div>
-                    <div class="form-group">
-                        <label for="text">Task text</label>
-                        <textarea class="form-control" id="text" name="text" rows="3"></textarea>
-                    </div>
-                    <div class="text-center">
-                        <button type="submit" class="btn btn-success mb-2">Add new task</button>
-                        <button type="reset" class="btn btn-danger mb-2">Clear all</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-        <!-- /add form -->
-        <!-- table -->
-        <div class="row">
-          <div class="col-md-12 col-sm-12">
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th scope="col">Name</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Task text</th>
-                        <th scope="col">Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="table-success">
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@twitter</td>
-                        <td>Completed</td>
-                    </tr>
-                    <tr>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@twitter</td>
-                        <td>Not completed</td>
-                    </tr>
-                    <tr>
-                        <td>@twitter</td>
-                        <td>@twitter</td>
-                        <td>@twitter</td>
-                        <td>@twitter</td>
-                    </tr>
-                </tbody>
-                </table>
-            </div>
-        </div>
-        <!-- /table -->
+
+        <?php
+            // Router
+            
+           
+        ?>
+
+
         <!-- pagination -->
         <nav aria-label="Page navigation example">
             <ul class="pagination">
