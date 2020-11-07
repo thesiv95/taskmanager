@@ -14,8 +14,8 @@
         
         // TODO: finish pagination
 
-        $view = new View(0);
-        $data = $view->view(0); // offset is 0 by default
+        $fetch = new Fetch(0);
+        $data = $fetch->view(0); // offset is 0 by default
         
     ?>
     
@@ -31,11 +31,11 @@
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav mr-auto">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="/taskmanager/">Home</a>
-                            </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/taskmanager/admin/">Admin (not logged)</a>
+                                <a class="nav-link" href="/">Home</a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="/admin.php">Admin (not logged)</a>
                             </li>
                         </ul>
                     </div>
@@ -96,7 +96,7 @@
                 </li>
                 
                 <?php
-                    $data_length = $view->all_rows_length();
+                    $data_length = $fetch->all_rows_length();
                     $pagination_counter = 1;
                 ?>
                 <li class="page-item">

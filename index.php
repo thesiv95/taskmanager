@@ -1,4 +1,11 @@
-<?php include 'autoload.php'; ?>
+<?php 
+    include 'autoload.php'; 
+
+    session_start();
+
+
+ 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,12 +17,12 @@
 <body>
     <?php
         // TODO: api
-        // create, login, logout, change_status, edit
+        // login, logout - ROUTER!
         
         // TODO: finish pagination
 
-        $view = new View(0);
-        $data = $view->view(0); // offset is 0 by default
+        $fetch = new Fetch(0);
+        $data = $fetch->view(0); // offset is 0 by default
         
     ?>
     
@@ -24,7 +31,7 @@
         <div class="row">
             <div class="col-md-12 col-sm-12">
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                    <a class="navbar-brand" href="/taskmanager/">Task Manager</a>
+                    <a class="navbar-brand" href="/">Task Manager</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -32,10 +39,16 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item active">
-                                <a class="nav-link" href="/taskmanager/">Home</a>
+                                <a class="nav-link" href="/">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/taskmanager/admin/">Admin (not logged)</a>
+                                <a class="nav-link" href="/admin.php">Admin
+                                    <?php if (!isset($_SESSION['username'])):  ?>
+                                        (not logged)
+                                    <?php else: ?>
+                                        <strong>(logged)</strong>
+                                    <?php endif; ?>
+                                </a>
                             </li>
                         </ul>
                     </div>
@@ -115,7 +128,7 @@
                 </li>
                 
                 <?php
-                    $data_length = $view->all_rows_length();
+                    $data_length = $fetch->all_rows_length();
                     $pagination_counter = 1;
                 ?>
                 <li class="page-item">
