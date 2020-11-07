@@ -4,7 +4,5 @@
 
     // TODO: connect paths to functions
 
-    // TODO: login / logout
-
 ?>
 
