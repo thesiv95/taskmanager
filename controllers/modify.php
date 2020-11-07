@@ -16,7 +16,7 @@
             if (preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix", $email)){
                 $query = "INSERT INTO tasks (name, email, text, completed) VALUES ($name, $email, $text, 0)";
                 $result = mysqli_query($link, $query);
-                header("Location: index.php");
+                header("Location: /");
             } else {
                 $msg = 'Email is not correct!';
                 return false;
@@ -34,7 +34,7 @@
             if (is_numeric($id)){
                 $query = "DELETE FROM tasks WHERE id=$id";
                 $result = mysqli_query($link, $query);
-                header("Location: index.php");
+                header("Location: /");
             } else {
                 return false;
             }
@@ -49,7 +49,7 @@
             if (is_numeric($id)){
                 $query = "UPDATE tasks SET text=$text WHERE id=$id";
                 $result = mysqli_query($link, $query);
-                header("Location: index.php");
+                header("Location: /");
             } else {
                 return false;
             }
@@ -64,7 +64,7 @@
             if (is_numeric($to) && is_numeric($id)){
                 $query = "UPDATE tasks SET completed=$to WHERE id=$id";
                 $result = mysqli_query($link, $query);
-                header("Location: index.php");
+                header("Location: /");
             } else {
                 return false;
             }

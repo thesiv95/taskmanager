@@ -31,7 +31,11 @@
                         <tr <?php if ($row['completed'] === '1') : ?>class="table-success"<?php endif; ?>>
                         <td><?php echo $row['name']; ?></td>
                         <td><?php echo $row['email']; ?></td>
-                        <td><?php echo $row['text']; ?></td>
+                        <td>
+                            <input type="text" class="form-control" 
+                            name="text_<?php echo $row['id']; ?>" 
+                            value="<?php echo $row['text']; ?>">
+                        </td>
                         <td>
                             <?php if ($row['completed'] === '1') : ?>
                             Completed

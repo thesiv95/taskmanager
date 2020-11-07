@@ -6,7 +6,8 @@
 
     $routes = [
         '' => $path_to_views . 'home.php',
-        'admin' => $path_to_views . 'admin.php'
+        'admin' => $path_to_views . 'admin.php',
+        'login' => $path_to_views . 'login.php'
     ];
 
     if (array_key_exists($path_from_uri, $routes)){
