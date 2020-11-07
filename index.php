@@ -1,10 +1,10 @@
 <?php 
     include 'autoload.php'; 
-    include 'router.php'; 
-    
-    // session_start();
+    include 'router.php';
 
+    // TODO: connect paths to functions
 
- 
+    // TODO: login / logout
+
 ?>
 
