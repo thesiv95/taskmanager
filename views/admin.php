@@ -1,6 +1,13 @@
 <?php include '_includes/header.php'; ?>
   <?php
         
+        session_start();
+
+        // If not logged
+        if(!isset($_SESSION["loggedin"])){
+            header("Location: /login");
+            exit;
+        }
         
 
         $fetch = new Fetch(0);
