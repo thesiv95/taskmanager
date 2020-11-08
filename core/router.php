@@ -2,7 +2,7 @@
     
     $path_from_uri = trim($_SERVER['REQUEST_URI'], '/');
     $path_from_uri = parse_url($path_from_uri, PHP_URL_PATH);
-    $path_to_views = __DIR__ . '/views/';
+    $path_to_views = substr(__DIR__, 0, -5) . '/views/'; // remove 'core' from path
 
     $routes = [
         '' => $path_to_views . 'home.php',

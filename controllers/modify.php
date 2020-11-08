@@ -1,29 +1,28 @@
 <?php
 
-    class Modify(){
+    class Modify {
 
-        $msg = '';
-        $root_path = substr(__DIR__, 0, -11);
-        require_once $root_path . 'database.php';
+        public function __construct() {
+            // $root_path = substr(__DIR__, 0, -11);
+            // require_once $root_path . 'database.php';
+        }
+        // $root_path = substr(__DIR__, 0, -11);
+        
 
-        public function create(){
+        public function create($name, $email, $text){
+
+            $root_path = substr(__DIR__, 0, -11);
+            require_once $root_path . 'database.php';
+
             $database = new Database();
             $link = $database->connect(); 
-            $name = htmlspecialchars($_POST['name']);
-            $email = htmlspecialchars($_POST['email']);
-            $text = htmlspecialchars($_POST['text']);
 
-            if (preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix", $email)){
-                $query = "INSERT INTO tasks (name, email, text, completed) VALUES ($name, $email, $text, 0)";
-                $result = mysqli_query($link, $query);
-                header("Location: /");
-            } else {
-                $msg = 'Email is not correct!';
-                return false;
-            }
-
-            $msg = 'Task added successfully!';
-
+            
+            
+            $query = "INSERT INTO tasks (`name`, `email`, `text`, `completed`) VALUES ('$name', '$email', '$text', 0)";
+            $result = mysqli_query($link, $query);
+            
+           header("Location: /");
         }
 
         public function delete(){

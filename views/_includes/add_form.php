@@ -1,7 +1,7 @@
 <!-- add form -->
 <div class="row">
     <div class="col-md-12 col-sm-12">
-        <form action="/create.php" method="POST">
+        <form action="core/crud/create.php" method="POST">
             <div class="form-group">
                 <label for="name">Name</label>
                 <input type="text" class="form-control" id="name" name="name">
