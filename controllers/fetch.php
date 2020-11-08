@@ -2,11 +2,7 @@
     $root_path = substr(__DIR__, 0, -11);
     require_once $root_path . 'database.php';
 
-    
-
     class Fetch {
-
-        
 
         public function view($offset){ 
             $database = new Database();
