@@ -50,13 +50,13 @@
                             Not completed
                             <?php endif; ?>
                         <td>
-                            <a href="/edit?id=<?php echo $row['id'] ?>" class="btn btn-primary mb-2">Edit</a>
+                            <a href="#" class="btn btn-primary mb-2">Edit</a>
                             <a 
-                            href="/change_status?to=<?php 
+                            href="core/crud/change_status.php?to=<?php 
                                 if ($row['completed'] === '1') {echo '0';} else {echo '1';}
                             ?>&id=<?php echo $row['id'] ?>" 
                             class="btn btn-warning mb-2">Change status</a>
-                            <a href="/delete?id=<?php echo $row['id'] ?>" class="btn btn-danger mb-2">Delete</a>
+                            <a href="/core/crud/delete.php?id=<?php echo $row['id'] ?>" class="btn btn-danger mb-2">Delete</a>
                         </td>
                     </tr>
                 <?php endwhile; ?>
