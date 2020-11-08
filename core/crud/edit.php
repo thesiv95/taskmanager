@@ -4,8 +4,8 @@
 
     $modify = new Modify();
     
-    $id = $_POST['id'];
-    $text = htmlspecialchars($_POST['text']);
+    $id = $_POST['task_id'];
+    $text = htmlspecialchars($_POST['text_'.$id]);
 
     $msg = 'Task updated successfully!';
 

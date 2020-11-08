@@ -30,7 +30,8 @@
 
         public function edit($id, $text){
             $link = $this->connect_to_db();
-            $query = "UPDATE `tasks` SET `text`=$text WHERE `id`=$id";
+            $query = "UPDATE `tasks` SET `text`='$text' WHERE `id`=$id";
+            echo $query;
             $result = mysqli_query($link, $query);
             header("Location: /admin");
         }
