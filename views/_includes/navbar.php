@@ -27,7 +27,7 @@
                 </ul>
             </div>
             <?php if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true): ?>
-            <a class="btn btn-danger" href="logout.php">Logout</a>
+            <a class="btn btn-danger" href="core/logout.php">Logout</a>
             <?php endif; ?>
         </nav>
     </div>

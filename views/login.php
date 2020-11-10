@@ -11,7 +11,7 @@
         <h1>Administrator login</h1>
     </div>
     <div class="row">
-        <form class="form-inline" action="auth.php" method="POST">
+        <form class="form-inline" action="core/auth.php" method="POST">
             <div class="form-group mb-2">
                 <label for="login" class="sr-only">Email</label>
                 <input type="text" class="form-control" name="login" id="login" value="">
