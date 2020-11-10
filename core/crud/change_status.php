@@ -1,5 +1,5 @@
 <?php
-    
+    session_start();
     require_once '../autoload_core.php';
 
     $modify = new Modify();
@@ -14,5 +14,6 @@
     }
 
     $modify->change_status($to, $id);
+    $_SESSION['msg'] = $msg;
 
 ?>

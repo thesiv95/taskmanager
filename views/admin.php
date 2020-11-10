@@ -18,6 +18,16 @@
     <div class="container">
         <?php include '_includes/navbar.php'; ?>
         <?php include '_includes/sort.php'; ?>
+        <!-- CRUD message -->
+        <?php if (isset($_SESSION['msg'])): ?>
+        <div class="alert alert-success" role="alert">
+            <?php 
+                echo $_SESSION['msg']; 
+                unset($_SESSION['msg']);
+            ?>
+        </div>
+        <?php endif ?>
+        <!-- /CRUD message -->
         <!-- table -->
         <div class="row">
             <div class="col-md-12 col-sm-12">

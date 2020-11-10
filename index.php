@@ -4,7 +4,6 @@
 
     // TODO: pagination
     // TODO: sort
-    // TODO: messages CRUD
 
 ?>
 

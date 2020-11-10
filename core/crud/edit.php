@@ -1,5 +1,5 @@
 <?php
-
+    session_start();
     require_once '../autoload_core.php';
 
     $modify = new Modify();
@@ -15,5 +15,6 @@
     }
 
     $modify->edit($id, $text);
+    $_SESSION['msg'] = $msg;
 
 ?>

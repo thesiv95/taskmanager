@@ -1,5 +1,5 @@
 <?php 
-
+    session_start();
     require_once '../autoload_core.php';
 
     $modify = new Modify();
@@ -12,5 +12,6 @@
     }
 
     $modify->delete($id);
+    $_SESSION['msg'] = $msg;
 
 ?>

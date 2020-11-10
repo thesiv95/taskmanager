@@ -1,5 +1,5 @@
 <?php 
-
+    session_start();
     require_once '../autoload_core.php';
 
     $modify = new Modify();
@@ -15,5 +15,6 @@
     }
 
     $modify->create($name, $email, $text);
+    $_SESSION['msg'] = $msg;
 
 ?>
