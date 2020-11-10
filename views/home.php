@@ -1,10 +1,6 @@
 <?php include '_includes/header.php'; ?>
 
     <?php
-        // TODO: api
-        // login, logout - ROUTER!
-        
-        // TODO: finish pagination
 
         $fetch = new Fetch(0);
         $data = $fetch->view(0); // offset is 0 by default
