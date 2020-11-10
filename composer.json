@@ -1,0 +1,12 @@
+{
+    "name": "thesiv95/taskmanager",
+    "description": "Test task for BeeJee",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Ilya Soloveychik",
+            "email": "dj.active.17@gmail.com"
+        }
+    ],
+    "require": {}
+}
